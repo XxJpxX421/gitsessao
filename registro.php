@@ -19,7 +19,7 @@ $stmt = $pdo->prepare("INSERT INTO usuarios (email, senha, usuario) VALUES (?, ?
 $stmt->execute([$email, $senha, $usuario]);
 
 $_SESSION["usuarios"] = $usuarios;
- header("Location:dashboard.php");
+ header("Location: dashboard.php");
 }
 ?>
 
