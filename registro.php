@@ -1,6 +1,6 @@
 <?php
 require_once 'config/config.php';
-require_once 'controllers/RegistroController.php';
+require_once 'public/controllers/RegistroController.php';
 
 $registroController = new RegistroController($pdo);
 
@@ -21,11 +21,11 @@ if (isset($_POST['email']) && ($_POST['senha']) && ($_POST['usuario'])) {
 <body>
     <h1>Registre-se</h1>
     <form method="post">
-        <input type="text" name="usuario" placeholder="Nome de Usuário">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="senha" placeholder="Senha">
+        <input type="text" name="usuario" placeholder="Nome de Usuário"><br><br>
+        <input type="email" name="email" placeholder="Email"><br><br>
+        <input type="password" name="senha" placeholder="Senha"><br><br>
         <button type="submit">Registrar</button>
 </form>
-
+<br><a href="login.php"><button>Logar</button></a>
 </body>
 </html>

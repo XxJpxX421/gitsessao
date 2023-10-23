@@ -2,10 +2,9 @@
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
-    header('location:login.php');
+    header('location: login.php');
     exit;
 }
-
 
 echo "Bem-Vindo, " . $_SESSION['usuario'] . "! Esta é a página de
 dashboard.";
@@ -19,7 +18,8 @@ dashboard.";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 </head>
-<body>
-    <a href="logout.php">Sair</a>
+<body><br>
+    <a href="logout.php">Sair</a><br><br>
+    <a href="index.php"><button>Comprar</button></a>
 </body>
 </html>

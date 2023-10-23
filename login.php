@@ -1,31 +1,8 @@
 <?php
+include 'config/config.php';
+include 'public/controllers/LoginController.php';
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = $_POST['usuario'];
-    $senha = $_POST['senha'];
-
-
-try {
-    $pdo = new PDO("mysql:host=localhost;dbname=autenticacao", "root", "");
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   } catch (PDOException $e) { 
-    die("Erro na conexão com banco de dados: " . $e->getMessage(  
-    ));   
-}
-
-$stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = ?");
-$stmt->execute([$usuario]);
-$user = $stmt->fetch();
-
-if ($user && password_verify($senha, $user['senha'])) {
-    $_SESSION['usuario'] = $usuario;
-    header('Location: ./src/public/dashboard.php');
-    } else {
-        echo "<script>alert('Login falhou. Verifique suas
-        credenciais.')</script>";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -39,7 +16,8 @@ if ($user && password_verify($senha, $user['senha'])) {
     <form method="post">
         <input type="text" name="usuario" placeholder="Nome de Usuario"required><br>
         <input type="password" name="senha" placeholder="Senha"required><br>
-        <br><input type="submit" value="Entrar">
+        <br><input type="submit" value="Entrar"><br>
     </form>
+    <br><a href="registro.php"><button>Registre-se</button></a>
 </body>
 </html>

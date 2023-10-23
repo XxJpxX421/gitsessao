@@ -1,5 +1,5 @@
 <?php
-require_once '../../model/RegistroModel.php';
+require_once 'C:\xampp\htdocs\gitsessao\public\model\RegistroModel.php';
 
 class RegistroController {
     private $registroModel;
